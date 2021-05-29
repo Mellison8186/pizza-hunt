@@ -188,7 +188,7 @@ function handleNewReplySubmit(event) {
     });
 }
 
-$backBtn.addEventListener("click", function () {
+$backBtn.addEventListener("click", function() {
   window.history.back();
 });
 
