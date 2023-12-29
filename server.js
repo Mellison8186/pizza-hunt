@@ -1,24 +1,29 @@
-const mongoose = require(`mongoose`);
-const express = require(`express`);
+const mongoose = require("mongoose");
+const express = require("express");
 const app = express();
-//const cors = require ('cors');
 
 const PORT = process.env.PORT || 3001;
-const MONGODB_URI = process.env.MONGODB_URI || `mongodb+srv://maribelduron86:U0NQNlpjb3hHRDd4NUhEcQ%3D%3D@cluster0.sceyqpu.mongodb.net/?retryWrites=true&w=majority`;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(`public`));
-//app.use(cors());
+app.use(express.static("public"));
 
-app.use(require(`./routes`));
+app.use(require("./routes"));
 
-mongoose.connect(MONGODB_URI, {
-  useFindAndModify: false,
-  useNewUrlParser: true,
-  useUnifiedTopology: true
+mongoose.connect(process.env.DB_URI, {
+  dbName: process.env.DB_NAME,
+  user: process.env.DB_USER,
+  pass:process.env.DB_PASS
+})
+.then(() => {
+  console.log('Victory is mine!');
+})
+.catch((err) => {
+  console.log(err.message)
 });
 
 // Use this to log mongo queries being executed!
-mongoose.set(`debug`, true);
-app.listen(PORT, () => console.log(`🌍 Connected on localhost:${PORT}`));
+mongoose.set("debug", true);
+app.listen(PORT, () => {
+  console.log(`🌍 Connected on localhost:${PORT}`);
+});
