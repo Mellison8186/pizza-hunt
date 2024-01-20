@@ -14,6 +14,8 @@ A pizza ordering service that allows users to post reviews of current menu items
 * Mongoose
 
 ## Website
+Thank you for your understanding as I actively work to migrate this site from Heroku to Vercel. 
+
 ![underConstruction](https://github.com/Mellison8186/tech-blog/assets/77599753/ed3284dc-8543-4b6f-a36a-438dce8f4cf8)
 
 ## Contribution
